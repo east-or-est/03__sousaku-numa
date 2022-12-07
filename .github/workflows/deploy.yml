@@ -1,0 +1,58 @@
+name: Deploy CI
+
+on:
+  push:
+    branches: [ main ]
+  repository_dispatch:
+    branches: [ master ]
+    types: [ update_post ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x]
+      
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      
+      - name: Build
+        env:
+          MICROCMS_API_KEY_BLOG: ${{ secrets.MICROCMS_API_KEY_BLOG }}
+          MICROCMS_SERVICE_DOMAIN_BLOG: ${{ secrets.MICROCMS_SERVICE_DOMAIN_BLOG }}
+          MICROCMS_API_KEY_PAGE: ${{ secrets.MICROCMS_API_KEY_PAGE }}
+          MICROCMS_SERVICE_DOMAIN_PAGE: ${{ secrets.MICROCMS_SERVICE_DOMAIN_PAGE }}
+          MICROCMS_API_KEY_NEWS: ${{ secrets.MICROCMS_API_KEY_NEWS }}
+          MICROCMS_SERVICE_DOMAIN_NEWS: ${{ secrets.MICROCMS_SERVICE_DOMAIN_NEWS }}
+          MICROCMS_API_KEY_OPT: ${{ secrets.MICROCMS_API_KEY_OPT }}
+          MICROCMS_SERVICE_DOMAIN_OPT: ${{ secrets.MICROCMS_SERVICE_DOMAIN_OPT }}
+          MICROCMS_API_KEY_NAV: ${{ secrets.MICROCMS_API_KEY_NAV }}
+          MICROCMS_SERVICE_DOMAIN_NAV: ${{ secrets.MICROCMS_SERVICE_DOMAIN_NAV }}
+        run: |
+          npm ci
+          npm run build --if-present
+        
+      - name: Deploy FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ secrets.FTP_PROTOCOL }}
+          port: ${{ secrets.FTP_PORT }}
+          server-dir: ${{ secrets.FTP_REMOTE_ROOT }}
+          local-dir: ./out/
