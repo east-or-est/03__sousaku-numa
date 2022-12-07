@@ -45,14 +45,12 @@ jobs:
         run: |
           npm ci
           npm run build --if-present
+          
+      - name: SSH Key Generate
+        run: |
+           mkdir -p ~/.ssh/
+           echo "${{ secrets.SSH_PASSWORD }}" > ~/.ssh/id_ed25519
+           chmod 600 ~/.ssh/id_ed25519
         
-      - name: Deploy FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.3
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ${{ secrets.FTP_PROTOCOL }}
-          port: ${{ secrets.FTP_PORT }}
-          server-dir: ${{ secrets.FTP_REMOTE_ROOT }}
-          local-dir: ./out/
+      - name: Deploy SSH
+        run: rsync -ahvz -e "ssh -i ~/.ssh/id_ed25519 -p ${{ secrets.SSH_PORT }} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_SERVER }}:${{ secrets.SSH_REMOTE_ROOT }} --include-from=".github/deploy_include.txt" --exclude-from=".github/deploy_exclude.txt"
