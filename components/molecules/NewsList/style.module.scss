@@ -1,0 +1,71 @@
+@import '../../../styles/function.scss';
+
+.list {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    position: relative;
+
+  
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1.5px;
+        background-image: linear-gradient(to right, #{map-get($siteColor,gray-2)}, #{map-get($siteColor,gray-3)} 2px, transparent 2px, transparent 6px);
+        background-size: 6px 1.5px;
+        background-repeat: repeat-x;
+    }
+
+    &:last-of-type {
+        margin-bottom: 60px;
+        padding-bottom: 60px;
+        &::before {
+            display: none;
+        }
+    }
+
+
+    dt {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        time {
+            margin-right: 12px;
+            color: #{map-get($siteColor,gray-2)};
+        }
+    }
+
+    [data-page="top"] &:last-of-type {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+}
+
+.desc {
+    padding-top: 10px;
+    p {
+        margin-top: 0 !important;
+        @include FontSize(14);
+    }
+}
+
+
+@include tabMax {
+    .list {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+
+@include spMax {
+    .desc {
+        p {
+            @include FontSize(12);
+        }
+    }
+}

@@ -1,0 +1,21 @@
+@import '../../../styles/function.scss';
+
+.link {
+    position: relative;
+    background-color: #{map-get($siteColor,gray)};
+    display: grid;
+    place-items: center;
+    z-index: 1;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    color: inherit !important;
+    text-decoration: none;
+    font-weight: 700;
+    img {
+        position: absolute;
+        z-index: -1;
+        transform: translate(-50%,-50%);
+        left: 50%;
+        top: 50%;
+    }
+}

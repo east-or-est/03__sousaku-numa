@@ -1,0 +1,5 @@
+$rootFontSize : 16;
+
+@mixin FontSize($size : 16) {
+    font-size: max(min($size / $rootFontSize * 1rem, $size / $rootFontSize * 1em), $size / $rootFontSize * 1rem);
+}

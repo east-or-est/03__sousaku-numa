@@ -1,0 +1,57 @@
+@import '../../../styles/function.scss';
+
+.title {
+    min-height: 200px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 100px;
+    background-color: #{map-get($siteColor,l-main)};
+    color: #{map-get($siteColor,main)};
+    box-sizing: border-box;
+    padding: 10px 20px;
+
+
+    &_text {
+        display: grid;
+        place-items: center;
+        span {
+            @include FontSize(40);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        h1, h2 {
+            @include FontSize(20);
+        }
+        .date {
+            @include FontSize(14);
+            color: #{map-get($siteColor,white)};
+            background-color: #{map-get($siteColor,main)};
+            padding: 6px 10px;
+        }
+    }
+
+    [data-color-type="ブルー"] & {
+        background-color: #{map-get($siteColor,l-sub)};
+        color: #{map-get($siteColor,sub)};
+
+        &_text {
+            .date {
+                background-color: #{map-get($siteColor,sub)};
+            }
+        }
+    }
+}
+
+@include tabMax {
+    .title {
+        min-height: 150px;
+        margin-bottom: 60px;
+        
+        &_text {
+            span {
+                @include FontSize(28);
+            }
+        }
+    }
+  }

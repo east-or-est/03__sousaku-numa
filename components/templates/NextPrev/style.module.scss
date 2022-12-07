@@ -1,0 +1,92 @@
+@import '../../../styles/function.scss';
+
+.pager {
+
+  ul {
+    text-align: center;
+    padding-top: 30px;
+    border-top: solid 1px #{map-get($siteColor,gray-2)};
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      display: flex;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      flex: 1;
+      max-width: 300px;
+      @include FontSize(14);
+      font-weight: 700;
+      
+      + li {
+        margin-left: 10px;
+      }
+
+      a[href] {
+        display: flex;
+        text-decoration: none;
+        padding: 12px 32px;
+        box-sizing: border-box;
+        border: solid 2px #{map-get($siteColor,sub)};
+        text-align: left;
+        text-decoration: none;
+        background-color: #{map-get($siteColor,white)};
+        color: #{map-get($siteColor,sub)} !important;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        [data-color-type="ブルー"] & {
+          color: #{map-get($siteColor,main)} !important;
+          border-color: #{map-get($siteColor,main)};
+        }
+        &:hover {
+          background-color: #{map-get($siteColor,sub)};
+          color: #{map-get($siteColor,white)} !important;
+          [data-color-type="ブルー"] & {
+            background-color: #{map-get($siteColor,main)} !important;
+          }
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          border-top: solid 2px;
+          border-right: solid 2px;
+          transform: translateY(-50%) rotate(-135deg);
+          left: 10px;
+          top: 50%;
+          box-sizing: border-box;
+        }
+      }
+
+    }
+
+    li.prev {
+      
+    }
+
+    li.next a[href]::before {
+      right: 10px;
+      left: auto;
+      transform: translateY(-50%) rotate(-135deg) scale(-1);
+    }
+  }
+}
+
+
+
+@include spMax {
+  .pager {
+    ul {
+      flex-direction: column;
+
+      li {
+        max-width: none;
+        margin-left: 0 !important;
+      }
+    }
+  }
+}

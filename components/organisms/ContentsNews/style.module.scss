@@ -1,0 +1,46 @@
+@import '../../../styles/function.scss';
+
+.wrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+
+    .header {
+        width: 240px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+
+        .btn {
+            margin-top: 10px;
+        }
+
+        h2 {
+            @include FontSize(30);
+        }
+    }
+
+    .main {
+        flex-grow: 1;
+    }
+}
+
+
+@include spMax {
+    .wrap {
+        flex-direction: column;
+
+        .header {
+            width: 100%;
+            margin-bottom: 20px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            
+            .btn {
+                margin-top: 0;
+            }
+
+        }
+    }
+  }

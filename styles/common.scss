@@ -1,0 +1,469 @@
+@import 'function.scss';
+
+/* ------------------------------------
+* リセット
+------------------------------------ */
+html { -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-box-shadow: none; box-shadow: none; outline: none; }
+html, body, ul, ol, li, dl, dt, dd, p, h1, h2, h3, h4, h5, h6, figure, summary, blockquote, pre, code { padding: 0; margin: 0; }
+h1, h2, h3, h4, h5, h6 { font-weight: 700; }
+br { line-height: 1em; }
+ol, ul { list-style: none; }
+body { line-height: 1; }
+hr { box-sizing: border-box; }
+img { max-width: 100%; height: auto; }
+figure { line-height: 0; }
+figcaption { line-height: normal; }
+
+
+/* ------------------------------------
+* デフォルトスタイル
+------------------------------------ */
+body {
+    overflow-x: hidden;
+    color: #{map-get($siteColor,font)};
+    @include FontSize();
+}
+body,
+.ja {
+    font-family: "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+}
+.en {
+    font-family: 'Arial';
+}
+.none {
+    display: none !important;
+}
+@include spMin {
+    .sp {
+        display: none;
+    }
+}
+@include spMax {
+    body {
+        @include FontSize(14);
+    }
+    .pc {
+        display: none;
+    }
+}
+main p a {
+    word-break: break-all;
+}
+
+/*=========================*/
+
+li, dt, dd {
+    line-height: 1.4;
+}
+li, dt, dd, h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3;
+}
+
+/*=========================*/
+
+p,
+a,
+dt,
+dd,
+li {
+    letter-spacing: 0.02em;
+}
+strong,
+span {
+    letter-spacing: inherit;
+}
+em {
+    color: #{map-get($siteColor,main)};
+    font-style: normal;
+}
+pre {
+    box-sizing: border-box;
+    background-color: #{map-get($siteColor,bg-code)};
+    padding: 30px 20px;
+    color: #{map-get($siteColor,font-code)};
+    code {
+        white-space: pre-wrap;
+        word-break: break-all;
+        line-height: 1.2;
+    }
+}
+hr {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border: none;
+    height: 2px;
+    background-color: #{map-get($siteColor,gray-3)};
+    + * {
+        margin-top: 0 !important;
+    }
+}
+.font-normal {
+    font-weight: 400 !important;
+}
+.font-bold {
+    font-weight: 700 !important;
+}
+ol {
+    list-style: decimal-leading-zero;
+    margin-left: 2em;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    li {
+        white-space: pre-wrap;
+        + li {
+            margin-top: 10px;
+        }
+    }
+}
+blockquote {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 10px 0 10px 20px;
+    box-sizing: border-box;
+    border-left: solid 5px #{map-get($siteColor,gray-3)};
+}
+
+p {
+    line-height: 1.6;
+}
+p:first-child {
+    margin-top: 0;
+}
+@include spMax {
+    p {
+        margin-top: 30px;
+    }
+}
+@include spMin {
+    p {
+        margin-top: 30px;
+    }
+    [href^="tel"] {
+        pointer-events: none;
+    }
+}
+
+/*=========================*/
+
+a[href]:link {
+    color: #{map-get($siteColor,sub)};
+}
+a[href]:visited {
+    color: #{map-get($siteColor,main)};
+}
+a[href]:hover {
+    color: #{map-get($siteColor,main)};
+}
+a[href]:active {
+    color: #{map-get($siteColor,main)};
+}
+a[href]:hover > img:only-child {
+    opacity: 0.6;
+}
+a[href=""] {
+    pointer-events: none !important;
+}
+
+/*=========================*/
+
+audio {
+    width: 100%;
+}
+figure {
+    text-align: center;
+}
+figcaption {
+    margin-top: 5px;
+}
+figcaption p {
+    @include FontSize(12);
+}
+@include spMax {
+    figcaption {
+        text-align: left;
+    }
+}
+
+/*=========================*/
+
+.tc {
+    text-align: center !important;
+}
+.tl {
+    text-align: left !important;
+}
+
+/*=========================*/
+
+.media-margin {
+    padding-right: 30px;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+
+@include spMax {
+    .media-margin {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    .sp-margin {
+        padding-right: 20px;
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+}
+
+/*=========================*/
+
+.color-main {
+    color: #{map-get($siteColor,main)};
+}
+.color-sub {
+    color: #{map-get($siteColor,sub)};
+}
+
+/*=========================*/
+
+@include tabMin {
+    main {
+        padding-left: #{map-get($siteWidth,header)};
+    }
+}
+
+
+
+/* ------------------------------------
+* ページ
+------------------------------------ */
+
+.page-content {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding-bottom: 60px;
+    max-width: #{map-get($siteWidth,def)};
+    margin-right: auto;
+    margin-left: auto;
+}
+@include spMax {
+    .page-content {
+        padding-bottom: 0;
+    }
+}
+
+
+/* ------------------------------------
+* パーツ：見出し
+------------------------------------ */
+
+[data-headline-style="blog"] {
+    ul {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        list-style: circle;
+        margin-left: 1.3em;
+        li {
+            white-space: pre-wrap;
+
+            + li {
+                margin-top: 10px;
+            }
+    
+            > ul {
+                list-style: disc;
+                margin-top: 0;
+                margin-bottom: calc(-1.3em*2);
+
+                > li {
+                    margin-top: -1.3em !important;
+                    padding-top: 5px;
+                }
+            }
+        }
+    }
+    h2 {
+        @include hl_01();
+    }
+
+    h3 {
+        @include hl_02();
+    }
+
+    h4 {
+        @include hl_03();
+    }
+
+    h5 {
+        @include hl_04();
+    }
+
+    h6 {
+        @include hl_05();
+    }
+    dl {
+        @include dl_01();
+    }
+    [data-color-type="ブルー"] & {
+        h2 {
+            @include hl_01(#{map-get($siteColor,sub)});
+        }
+    
+        h3 {
+            @include hl_02(#{map-get($siteColor,sub)});
+        }
+    
+        h4 {
+            @include hl_03(#{map-get($siteColor,sub)});
+        }
+    
+        h5 {
+            @include hl_04(#{map-get($siteColor,sub)});
+        }
+    
+        h6 {
+            @include hl_05(#{map-get($siteColor,sub)});
+        }
+    }
+}
+
+[data-headline-style="page"] {
+    li {
+        white-space: pre-wrap;
+    }
+    h2 {
+        @include hl_02();
+    }
+    h3 {
+        @include hl_03();
+    }
+    h4 {
+        @include hl_04();
+    }
+    h5 {
+        @include hl_05();
+    }
+    h6 {
+        @include hl_06();
+    }
+    dl {
+        @include dl_01();
+    }
+    ul {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        list-style: circle;
+        margin-left: 1.3em;
+        li {
+            white-space: pre-wrap;
+
+            + li {
+                margin-top: 10px;
+            }
+    
+            > ul {
+                list-style: disc;
+                margin-top: 0;
+                margin-bottom: calc(-1.3em*2);
+
+                > li {
+                    margin-top: -1.3em !important;
+                    padding-top: 5px;
+                }
+            }
+        }
+    }
+    [data-color-type="ブルー"] & {
+        h2 {
+            @include hl_02(#{map-get($siteColor,sub)});
+        }
+        h3 {
+            @include hl_03(#{map-get($siteColor,sub)});
+        }
+        h4 {
+            @include hl_04(#{map-get($siteColor,sub)});
+        }
+        h5 {
+            @include hl_05(#{map-get($siteColor,sub)});
+        }
+        h6 {
+            @include hl_06(#{map-get($siteColor,sub)});
+        }
+    }
+}
+
+[data-headline-style="novel"] {
+    p {
+        margin-top: 40px;
+    }
+    p:first-child {
+        margin-top: 0 !important;
+    }
+    .m-l {
+        margin-top: 120px;
+    }
+}
+
+[data-headline-style="error"] {
+    h1 {
+        @include FontSize(50);
+        text-align: center;
+        padding-bottom: 60px;
+    }
+
+    @include spMax {
+        h1 {
+            @include FontSize(26);
+            padding-bottom: 110px;
+        }
+    }
+}
+
+
+
+
+/* ------------------------------------
+* パーツ：リスト
+------------------------------------ */
+.parts-list_01 {
+    text-align: center;
+  
+    li {
+      display: inline-block;
+      margin-top: 5px;
+      &::after {
+        content: '\002F';
+        padding-left: .5em;
+        padding-right: .5em;
+      }
+      &:last-of-type {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  
+    a[href] {
+      color: #{map-get($siteColor,font)} !important;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+}
+
+
+@include spMax {
+    .parts-list_01[data-sp-text-align="left"] {
+        text-align: left;
+    }
+}
+
+
+/* ------------------------------------
+* パーツ：ボタン
+------------------------------------ */
+.parts-btn_01 {
+    @include btn_01();
+    [data-color-type="ブルー"] & {
+        @include btn_01(#{map-get($siteColor,sub)});
+    }
+}

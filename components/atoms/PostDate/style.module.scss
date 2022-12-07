@@ -1,0 +1,27 @@
+@import '../../../styles/function.scss';
+
+.time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+
+    span:first-of-type {
+        @include FontSize(25);
+    }
+    span:last-of-type {
+        @include FontSize(20);
+    }
+}
+
+@include spMax {
+    .time {
+        span:first-of-type {
+            @include FontSize(20);
+        }
+        span:last-of-type {
+            @include FontSize(15);
+        }
+    }
+}

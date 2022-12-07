@@ -1,0 +1,48 @@
+$screenMax: (
+    sp: 767px,
+    tab: 1200px
+);
+
+$screenMin: (
+    sp: map-get($screenMax, sp) + 1,
+    tab: map-get($screenMax, tab) + 1
+);
+
+
+
+@mixin tabMax {
+    @media (max-width: map-get($screenMax, tab)) {
+        @content;
+    }
+}
+
+@mixin tabMin {
+    @media (min-width: map-get($screenMin, tab)) {
+        @content;
+    }
+}
+
+@mixin spMax {
+    @media (max-width: map-get($screenMax, sp)) {
+        @content;
+    }
+}
+
+@mixin spMaxW {
+    @media (max-width: map-get($screenMax, sp)) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin spMaxH {
+  @media (max-width: map-get($screenMax, sp)) and (orientation: portrait) {
+    @content;
+  }
+}
+
+
+@mixin spMin {
+    @media (min-width: map-get($screenMin, sp)) {
+        @content;
+    }
+}

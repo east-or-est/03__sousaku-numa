@@ -1,0 +1,30 @@
+@import '../../../styles/function.scss';
+
+.list {
+
+    @include FontSize(13);
+    margin-top: 5px;
+    
+    li {
+        display: inline-block;
+        margin-right: 5px;
+        margin-top: 5px;
+        padding-right: 5px;
+        color: #{map-get($siteColor,gray-2)};
+        border-right: solid 1px;
+        &:last-of-type {
+            margin-right: 0;
+            border-right: none;
+        }
+    }
+
+    a[href] {
+        color: #{map-get($siteColor,gray-4)};
+        text-decoration: none;
+        &:hover {
+            color: #{map-get($siteColor,sub)};
+            text-decoration: underline;
+        }
+    }
+
+}

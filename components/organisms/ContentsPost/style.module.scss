@@ -1,0 +1,21 @@
+@import '../../../styles/function.scss';
+
+.section {
+  margin-bottom: 80px;
+  position: relative;
+  max-width: #{map-get($siteWidth,def)};
+  margin-right: auto;
+  margin-left: auto;
+  
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+
+}
+
+@include spMax {
+  .section {
+    margin-top: 35px;
+    margin-bottom: 120px;
+  }
+}

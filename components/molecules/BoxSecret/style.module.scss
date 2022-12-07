@@ -1,0 +1,50 @@
+@import '../../../styles/function.scss';
+
+.desc {
+  margin-bottom: 30px;
+
+  &:first-of-type {
+    *:first-child {
+      margin-top: 0;
+    }
+  }
+  
+}
+
+.details {
+  border: solid 1px #{map-get($siteColor,gray)};
+
+  *:first-child {
+    margin-top: 0;
+  }
+
+  summary {
+    padding: 20px;
+    background-color: #{map-get($siteColor,sub)};
+    color: #{map-get($siteColor,white)};
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #{map-get($siteColor,accent)};
+    }
+  }
+  div:not(:empty) {
+    padding: 20px;
+  }
+
+  &[open] {
+    summary {
+      background-color: #{map-get($siteColor,accent)};
+    }
+  }
+  
+}
+
+.files {
+  margin-bottom: 50px;
+
+  figure + figure {
+    margin-top: 30px;
+  }
+}

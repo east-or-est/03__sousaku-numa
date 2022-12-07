@@ -1,0 +1,10 @@
+@import '../../../styles/function.scss';
+
+.desc {
+    &:first-child {
+        margin-top: 0;
+    }
+    p {
+        white-space: pre-wrap;
+    }
+}

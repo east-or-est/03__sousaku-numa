@@ -1,0 +1,27 @@
+@import '../../../styles/function.scss';
+
+.copyright {
+  position: fixed;
+  top: 10px;
+  left: 0;
+  z-index: #{map-get($siteZindex,copyright)};
+  p {
+    @include FontSize(12);
+    text-align: center;
+  }
+}
+
+@include tabMin {
+  .copyright {
+    width: #{map-get($siteWidth,header)};
+  }
+}
+@include tabMax {
+  .copyright {
+    position: static;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #{map-get($siteColor,sub)};
+    color:  #{map-get($siteColor,white)};
+  }
+}

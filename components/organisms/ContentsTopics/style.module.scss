@@ -1,0 +1,19 @@
+@import '../../../styles/function.scss';
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+
+  .item {
+    width: 25%;
+  }
+}
+
+@include spMax {
+  .list {
+    .item {
+      width: 50%;
+    }
+  }
+}

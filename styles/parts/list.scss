@@ -1,0 +1,12 @@
+@mixin dl_01($color: #{map-get($siteColor,sub)}) {
+    margin-top: 20px;
+
+    dt {
+        font-weight: 700;
+        color: $color;
+    }
+    dd {
+        margin-left: 1em;
+        margin-top: 5px;
+    }
+}

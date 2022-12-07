@@ -1,0 +1,63 @@
+@import '../../../styles/function.scss';
+
+.pager {
+  max-width: #{map-get($siteWidth,def)};
+  margin-right: auto;
+  margin-left: auto;
+
+  ul {
+    text-align: center;
+    padding-top: 30px;
+    border-top: solid 1px #{map-get($siteColor,gray-2)};
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      display: flex;
+      line-height: 1;
+      margin-bottom: 10px;
+      
+      + li {
+        margin-left: 10px;
+      }
+
+      a[href],
+      span {
+        display: flex;
+        text-decoration: none;
+        padding: 12px;
+        box-sizing: border-box;
+        border: solid 1px #{map-get($siteColor,sub)};
+        [data-color-type="ブルー"] & {
+          border-color: #{map-get($siteColor,main)};
+        }
+      }
+
+      a[href] {
+        text-decoration: none;
+        background-color: #{map-get($siteColor,sub)};
+        color: #{map-get($siteColor,white)} !important;
+        [data-color-type="ブルー"] & {
+          background-color: #{map-get($siteColor,main)};
+        }
+        &:hover {
+          background-color: #{map-get($siteColor,accent)};
+          border-color: #{map-get($siteColor,accent)};
+          [data-color-type="ブルー"] & {
+            border-color: #{map-get($siteColor,accent)};
+            background-color: #{map-get($siteColor,accent)};
+          }
+        }
+      }
+
+      span {
+        color: #{map-get($siteColor,sub)};
+        [data-color-type="ブルー"] & {
+          color: #{map-get($siteColor,main)};
+        }
+      }
+
+    }
+  }
+}

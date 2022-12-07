@@ -1,0 +1,20 @@
+@mixin btn_01($bgColor: #{map-get($siteColor,main)}, $bgColor-hover: #{map-get($siteColor,accent)}, $textColor: #{map-get($siteColor,white)}) {
+    display: block;
+    text-align: center;
+    @include FontSize();
+    margin-top: 30px;
+  
+    a[href] {
+        background-color: $bgColor;
+        color: $textColor !important;
+        display: inline-block;
+        padding: 15px 20px;
+        text-decoration: none;
+        max-width: 200px;
+        width: 100%;
+        border-radius: 5px;
+        &:hover {
+            background-color: $bgColor-hover;
+        }
+    }
+}

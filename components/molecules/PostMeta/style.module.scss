@@ -1,0 +1,7 @@
+@import '../../../styles/function.scss';
+
+.wrap {
+    padding: 15px 20px 20px;
+    box-sizing: border-box;
+    background-color: #{map-get($siteColor,gray-5)};
+}

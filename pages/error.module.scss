@@ -1,0 +1,19 @@
+@import '../styles/function.scss';
+
+@include tabMin {
+    .main {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        > div {
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+        }
+    }
+}
+
+@include tabMax {
+    .main {
+        padding-top: 60px;
+    }
+}

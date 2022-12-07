@@ -1,0 +1,78 @@
+@import '../../../styles/function.scss';
+
+.content {
+    padding: 0 40px;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: calc(100% + 10px);
+        border-left: solid 2px #{map-get($siteColor,gray)};
+        border-right: solid 2px #{map-get($siteColor,gray)};
+        border-image: linear-gradient(to top, #e66390 0%, #ffc4d9 100%) 1/0 2px 0 2px;
+        z-index: -1;
+        opacity: .3;
+    }
+
+}
+.content[data-border='none'] {
+    padding: 0;
+    &::before {
+        display: none;
+    }
+
+    + div:not(:empty) {
+        margin-top: 140px;
+    }
+}
+
+@include spMax {
+    .content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+.desc {
+    margin-top: 50px;
+    a[href] {
+        color: inherit !important;
+        text-decoration: none;
+        display: flex;
+        align-items: flex-start;
+        &:hover {
+            text-decoration: underline;
+
+            figure {
+                opacity: .6;
+            }
+        }
+    }
+    figure {
+        width: 180px;
+        flex-shrink: 0;
+        margin: 0;
+    }
+
+    p {
+        margin-top: 0;
+        padding-right: 40px;
+        flex-grow: 1;
+    }
+}
+
+@include spMax {
+    .desc {
+        figure {
+            width: 30%;
+        }
+        p {
+            padding-right: 20px;
+        }
+    }
+}
