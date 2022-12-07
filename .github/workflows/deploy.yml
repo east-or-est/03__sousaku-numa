@@ -53,4 +53,4 @@ jobs:
            chmod 600 ~/.ssh/id_ed25519
         
       - name: Deploy SSH
-        run: rsync -ahvz -e "ssh -i ~/.ssh/id_ed25519 -p ${{ secrets.SSH_PORT }} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_SERVER }}:${{ secrets.SSH_REMOTE_ROOT }} --include-from=".github/deploy_include.txt" --exclude-from=".github/deploy_exclude.txt"
+        run: rsync -ahvz -e "ssh -i ~/.ssh/id_ed25519 -p ${{ secrets.SSH_PORT }} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" ./out/ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_SERVER }}:${{ secrets.SSH_REMOTE_ROOT }} --include-from=".github/deploy_include.txt" --exclude-from=".github/deploy_exclude.txt"
