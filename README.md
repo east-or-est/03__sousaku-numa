@@ -14,4 +14,4 @@ Next.js × microCMS で実装しSSG化しました。
 
 ## 履歴
 
-Releasesを確認ください。
+[Releasesを確認ください。](releases)
