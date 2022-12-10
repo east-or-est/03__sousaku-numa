@@ -1,0 +1,10 @@
+{
+  "extends": ["plugin:@typescript-eslint/recommended",  "next", "next/core-web-vitals"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "semi": ["error", "always"],
+    "@typescript-eslint/rule-name": "error",
+    "@next/next/no-img-element": "off"
+  }
+}
