@@ -136,7 +136,7 @@ export async function getStaticProps(context : any) {
   .get({
     endpoint: 'posts',
     queries: {
-      limit: PER_PAGE_BLOG,
+      limit: PER_PAGE_BLOG * 10,
       orders: '-date',
       filters: `tags[contains]${id}`,
     }

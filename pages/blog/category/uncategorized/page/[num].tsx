@@ -146,7 +146,7 @@ export async function getStaticProps(context : any) {
     endpoint: 'posts',
     queries: {
       offset: (id - 1) * PER_PAGE_BLOG,
-      limit: PER_PAGE_BLOG,
+      limit: PER_PAGE_BLOG * 10,
       orders: '-date',
       filters: `categories[not_exists]`,
     }
