@@ -98,7 +98,7 @@ export async function getStaticProps(context : any) {
   .get({
     endpoint: 'posts',
     queries: {
-      limit: PER_PAGE_NEWS,
+      limit: PER_PAGE_NEWS * 10,
       orders: '-date',
       filters: `categories[not_exists]`,
     }
