@@ -36,12 +36,14 @@ function BoxContents({ contents, postPath = "blog" } : BoxContentsProps) {
               : false
             }
             {
-              group.desc.length ?
-              <div className={styles.desc}>
-                <Markdown
-                  text={group.desc}
-                />
-              </div>
+              group.desc ?
+                group.desc.length ?
+                <div className={styles.desc}>
+                  <Markdown
+                    text={group.desc}
+                  />
+                </div>
+                : false
               : false
             }
           </>
