@@ -30,7 +30,7 @@ interface PageBlogPageIdMapProps {
   date: string;
   categories: [];
   contents: [];
-  read_more: boolean;
+  contents_more: [];
 }
 
 
@@ -50,8 +50,8 @@ const PageBlogPageId: NextPage<PageBlogPageIdProps> = ({ gNav, fNav, blog, total
               date={json.date}
               category={json.categories}
               moreID={json.id}
-              more={json.read_more}
               contents={json.contents}
+              contents_more={json.contents_more}
               postPath="blog"
             />
           )}

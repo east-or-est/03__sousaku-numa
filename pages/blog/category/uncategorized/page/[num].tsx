@@ -31,7 +31,7 @@ interface PageBlogCatNonePageIdMapProps {
   date: string;
   categories: [];
   contents: [];
-  read_more: boolean;
+  contents_more: [];
 }
 
 
@@ -57,8 +57,8 @@ const PageBlogCatNonePageId: NextPage<PageBlogCatNonePageIdProps> = ({ gNav, fNa
               date={json.date}
               category={json.categories}
               moreID={json.id}
-              more={json.read_more}
               contents={json.contents}
+              contents_more={json.contents_more}
               postPath="blog"
             />
           )}

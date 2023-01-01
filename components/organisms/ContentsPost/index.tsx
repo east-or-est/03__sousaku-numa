@@ -10,13 +10,13 @@ interface ContentsPostProps {
   category: [];
   contents: [];
   moreID: string;
-  more: boolean;
   postPath?: "blog" | "page";
   border?: string;
+  contents_more: [];
 }
 
 
-function ContentsPost({ title, date, category, contents, moreID, more = false, postPath = "blog", border = "def" } : ContentsPostProps) {
+function ContentsPost({ title, date, category, contents, moreID, postPath = "blog", border = "def", contents_more } : ContentsPostProps) {
   return (
     <section className={styles.section}>
       <PostHeader
@@ -29,11 +29,15 @@ function ContentsPost({ title, date, category, contents, moreID, more = false, p
         postPath={postPath}
         border={border}
       />
-      <PostMoreLink
-        moreID={moreID}
-        more={more}
-        postPath={postPath}
-      />
+      { contents_more ?
+          contents_more.length ?
+          <PostMoreLink
+            moreID={moreID}
+            postPath={postPath}
+          />
+          : false
+        : false
+      }
     </section>
   )
 }

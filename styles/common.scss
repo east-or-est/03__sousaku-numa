@@ -40,7 +40,7 @@ body,
 }
 @include spMax {
     body {
-        @include FontSize(14);
+        @include FontSize(16);
     }
     .pc {
         display: none;
