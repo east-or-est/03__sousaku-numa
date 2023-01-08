@@ -14,11 +14,11 @@ interface FigureProps {
 }
 
 
-function Figure({ fileType = "画像", src = "", alt = "", caption = "", postPath = "blog" }) {
+function Figure({ fileType = ["画像"], src = "", alt = "", caption = "", postPath = "blog" }) {
   return (
     <figure className={styles.figure}>
       {( () => {
-        switch (fileType) {
+        switch (fileType[0]) {
           case '音声':
             return <Audio src={`/asset/audio/${postPath}/${src}`} />
           case '動画':
