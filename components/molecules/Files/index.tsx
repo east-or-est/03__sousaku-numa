@@ -9,7 +9,7 @@ interface FilesProps {
 }
 
 interface FilesMapProps {
-  type: string;
+  type: string[];
   name: string;
   caption: string | undefined;
 }
@@ -21,7 +21,7 @@ function Files({ files, postPath } : FilesProps) {
       {files.map(( group: FilesMapProps, index: number ) =>
         <Figure
           key={index}
-          fileType={group.type}
+          fileType={group.type[0]}
           src={group.name}
           caption={group.caption}
           postPath={postPath}
