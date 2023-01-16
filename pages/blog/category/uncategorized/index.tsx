@@ -32,6 +32,9 @@ interface PageBlogCatNoneMapProps {
   categories: [];
   contents: [];
   contents_more: [];
+  author: string[];
+  postimage: string[];
+  tags: [];
 }
 
 

@@ -34,6 +34,9 @@ interface PageBlogCatMapProps {
   categories: [];
   contents: [];
   contents_more: [];
+  author: string[];
+  postimage: string[];
+  tags: [];
 }
 
 

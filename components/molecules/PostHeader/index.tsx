@@ -11,6 +11,7 @@ interface PostHeaderProps {
   category: [];
   author: string[];
   postimage: string[];
+  tag: [];
 }
 
 

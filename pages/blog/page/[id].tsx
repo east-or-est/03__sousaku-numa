@@ -31,6 +31,9 @@ interface PageBlogPageIdMapProps {
   categories: [];
   contents: [];
   contents_more: [];
+  author: string[];
+  postimage: string[];
+  tags: [];
 }
 
 

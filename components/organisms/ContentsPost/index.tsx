@@ -1,7 +1,6 @@
 import PostHeader from '../../molecules/PostHeader/'
 import PostConetnt from '../../molecules/PostConetnt/'
 import PostMoreLink from '../../molecules/PostMoreLink/'
-import PostFooter from '../../molecules/PostFooter'
 import styles from './style.module.scss'
 
 
