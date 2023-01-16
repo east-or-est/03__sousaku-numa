@@ -86,6 +86,11 @@
       li {
         max-width: none;
         margin-left: 0 !important;
+
+        + li {
+          order: -1;
+        }
+        
       }
     }
   }

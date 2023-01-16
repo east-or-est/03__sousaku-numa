@@ -63,7 +63,10 @@ const PageBlog: NextPage<PageBlogProps> = ({  gNav, fNav, blog, blogCat, totalCo
               moreID={json.id}
               contents={json.contents}
               contents_more={json.contents_more}
+              author={json.author}
+              postimage={json.postimage}
               postPath="blog"
+              tag={json.tags}
             />
           )}
         </div>
@@ -101,7 +104,7 @@ export async function getStaticProps() {
     endpoint: 'posts',
     queries: {
       offset: 0,
-      limit: PER_PAGE_BLOG * 10,
+      limit: PER_PAGE_BLOG,
       orders: '-date',
     }
   })

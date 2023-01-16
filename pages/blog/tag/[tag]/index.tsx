@@ -66,7 +66,10 @@ const PageBlogTag: NextPage<PageBlogTagProps> = ({ gNav, fNav, blog, blogCat, to
               moreID={json.id}
               contents={json.contents}
               contents_more={json.contents_more}
+              author={json.author}
+              postimage={json.postimage}
               postPath="blog"
+              tag={json.tags}
             />
           )}
         </div>
@@ -136,7 +139,7 @@ export async function getStaticProps(context : any) {
   .get({
     endpoint: 'posts',
     queries: {
-      limit: PER_PAGE_BLOG * 10,
+      limit: PER_PAGE_BLOG,
       orders: '-date',
       filters: `tags[contains]${id}`,
     }

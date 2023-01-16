@@ -124,6 +124,7 @@ export async function getStaticProps(context : any) {
     endpoint: 'posts',
     queries: {
       limit: 100,
+      orders: '-date',
       fields: 'id,title'
     }
   })
