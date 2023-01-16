@@ -103,7 +103,7 @@ export async function getStaticProps() {
     endpoint: 'posts',
     queries: {
       offset: 0,
-      limit: PER_PAGE_NEWS * 10,
+      limit: PER_PAGE_NEWS,
       orders: '-date',
     }
   })

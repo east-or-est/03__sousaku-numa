@@ -139,7 +139,7 @@ export async function getStaticProps(context : any) {
   .get({
     endpoint: 'posts',
     queries: {
-      limit: PER_PAGE_NEWS * 10,
+      limit: PER_PAGE_NEWS,
       orders: '-date',
       filters: `categories[contains]${id}`,
     }

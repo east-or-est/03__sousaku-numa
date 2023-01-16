@@ -35,59 +35,65 @@ function Pagination({ totalCount, selCount = 1, type = 'archive', selCategory, p
                   {( () => {
                     switch (type) {
                       case 'category':
-                        <>
-                          { number === 1 ?
-                          <Link
-                            href={ `/${postPath}/category/${selCategory}`}
-                            passHref
-                          >
-                            {number}
-                          </Link>
-                          :
-                          <Link
-                            href={ `/${postPath}/category/${selCategory}/page/${number}`}
-                            passHref
-                          >
-                            {number}
-                          </Link>
-                          }
-                        </>
+                        return(
+                          <>
+                            { number === 1 ?
+                            <Link
+                              href={ `/${postPath}/category/${selCategory}`}
+                              passHref
+                            >
+                              {number}
+                            </Link>
+                            :
+                            <Link
+                              href={ `/${postPath}/category/${selCategory}/page/${number}`}
+                              passHref
+                            >
+                              {number}
+                            </Link>
+                            }
+                          </>
+                        )
                       case 'tag':
-                        <>
+                        return(
+                          <>
+                            { number === 1 ?
+                            <Link
+                              href={ `/${postPath}/tag/${selCategory}`}
+                              passHref
+                            >
+                              {number}
+                            </Link>
+                            :
+                            <Link
+                              href={ `/${postPath}/tag/${selCategory}/page/${number}`}
+                              passHref
+                            >
+                              {number}
+                            </Link>
+                            }
+                          </>
+                          )
+                      default:
+                        return(
+                          <>
                           { number === 1 ?
                           <Link
-                            href={ `/${postPath}/tag/${selCategory}`}
+                            href={ `/${postPath}`}
                             passHref
                           >
                             {number}
                           </Link>
                           :
                           <Link
-                            href={ `/${postPath}/tag/${selCategory}/page/${number}`}
+                            href={ `/${postPath}/page/${number}`}
                             passHref
                           >
                             {number}
                           </Link>
                           }
                         </>
-                      default:
-                        <>
-                        { number === 1 ?
-                        <Link
-                          href={ `/${postPath}`}
-                          passHref
-                        >
-                          {number}
-                        </Link>
-                        :
-                        <Link
-                          href={ `/${postPath}/page/${number}`}
-                          passHref
-                        >
-                          {number}
-                        </Link>
-                        }
-                      </>
+                      )
                     }
                   }) ()}
                 </>
