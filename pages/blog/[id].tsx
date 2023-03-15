@@ -8,6 +8,7 @@ import PostConetnt from '../../components/molecules/PostConetnt/'
 import PageTitle from '../../components/molecules/PageTitle'
 import NextPrev from '../../components/templates/NextPrev'
 import PostMeta from '../../components/molecules/PostMeta'
+import PostRelation from '../../components/molecules/PostRelation'
 
 import styles from './style.module.scss'
 
@@ -22,6 +23,7 @@ interface PageBlogIDProps {
     tags: [];
     contents: [];
     contents_more: [];
+    relation: [];
   }
   blogPager: {
     contents: [];
@@ -61,6 +63,9 @@ const PageBlogID: NextPage<PageBlogIDProps> = ({ gNav, fNav, blog, blogPager }) 
             category={blog.categories}
             tag={blog.tags}
             postType="blog"
+          />
+          <PostRelation
+            relation={blog.relation}
           />
           <footer className={styles.footer}>
             <NextPrev

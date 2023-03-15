@@ -1,0 +1,16 @@
+@import '../../../styles/function.scss';
+
+.wrap {
+    h2 {
+        @include hl_02();
+    }
+    &[data-color-type="ブルー"] {
+        h2 {
+            @include hl_02(#{map-get($siteColor,sub)});
+        }
+    }
+
+    ul {
+        @include ul_01();
+    }
+}
