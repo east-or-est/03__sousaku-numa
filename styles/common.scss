@@ -257,28 +257,7 @@ figcaption p {
 
 [data-headline-style="blog"] {
     ul {
-        margin-top: 30px;
-        margin-bottom: 30px;
-        list-style: circle;
-        margin-left: 1.3em;
-        li {
-            white-space: pre-wrap;
-
-            + li {
-                margin-top: 10px;
-            }
-    
-            > ul {
-                list-style: disc;
-                margin-top: 0;
-                margin-bottom: calc(-1.3em*2);
-
-                > li {
-                    margin-top: -1.3em !important;
-                    padding-top: 5px;
-                }
-            }
-        }
+        @include ul_01();
     }
     h2 {
         @include hl_01();
@@ -326,9 +305,6 @@ figcaption p {
 }
 
 [data-headline-style="page"] {
-    li {
-        white-space: pre-wrap;
-    }
     h2 {
         @include hl_02();
     }
@@ -348,28 +324,7 @@ figcaption p {
         @include dl_01();
     }
     ul {
-        margin-top: 30px;
-        margin-bottom: 30px;
-        list-style: circle;
-        margin-left: 1.3em;
-        li {
-            white-space: pre-wrap;
-
-            + li {
-                margin-top: 10px;
-            }
-    
-            > ul {
-                list-style: disc;
-                margin-top: 0;
-                margin-bottom: calc(-1.3em*2);
-
-                > li {
-                    margin-top: -1.3em !important;
-                    padding-top: 5px;
-                }
-            }
-        }
+        @include ul_01();
     }
     [data-color-type="ブルー"] & {
         h2 {
