@@ -3,7 +3,6 @@ import { NextPage } from 'next'
 import { client_page, client_news, client_opt, client_nav } from '../lib/client'
 
 import Layout from '../components/templates/Layout'
-import MV from '../components/organisms/MV'
 import ContentsNews from '../components/organisms/ContentsNews'
 import ContentsTopics from '../components/organisms/ContentsTopics'
 import BoxContents from '../components/molecules/BoxContents'
@@ -39,7 +38,6 @@ interface HomePropsPropsPageMetas {
 const Home: NextPage<HomeProps> = ({ gNav, fNav, page, news, conPrivate }) => {
   return (
     <Layout gNav={gNav} fNav={fNav} pageID="top" pageMeta={page.metas ? page.metas : ''} colorType={page.colorType ? page.colorType : 'ピンク'}>
-      <MV />
       <div className="page-content" data-headline-style="top">
         <div className="media-margin">
           { news && conPrivate.topContents.news !== true ?
