@@ -1,0 +1,25 @@
+@import '../styles/function.scss';
+
+.bottom {
+  margin-top: 120px;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+
+  & > * {
+    flex: 1;
+  }
+}
+
+.frame {
+  h2 {
+    @include hl_03(#{map-get($siteColor,sub)});
+    margin-top: 0;
+  }
+}
+
+@include spMax {
+  .bottom {
+    flex-direction: column;
+  }
+}

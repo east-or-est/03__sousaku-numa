@@ -1,21 +1,7 @@
 @import '../../../styles/function.scss';
 
 .nav {
-  position: fixed;
-  bottom: 10px;
-  left: 0;
-  z-index: #{map-get($siteZindex,copyright)};
-}
-
-@include tabMin {
-  .nav {
-    width: #{map-get($siteWidth,header)};
-  }
-}
-@include tabMax {
-  .nav {
-    position: static;
-    padding-bottom: 10px;
-    padding-top: 10px;
-  }
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 30px;
 }
