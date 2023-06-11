@@ -1,0 +1,83 @@
+@import '../../../styles/function.scss';
+
+.list {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+
+  
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1.5px;
+        background-image: linear-gradient(to right, #{map-get($siteColor,gray-2)}, #{map-get($siteColor,gray-3)} 2px, transparent 2px, transparent 6px);
+        background-size: 6px 1.5px;
+        background-repeat: repeat-x;
+    }
+
+    &:last-of-type {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        &::before {
+            display: none;
+        }
+    }
+
+    dt {
+        color: #{map-get($siteColor,gray-4)};
+        @include FontSize(14);
+        align-self: flex-end;
+        position: relative;
+        padding-left: 2.2em;
+        box-sizing: border-box;
+        &::before {
+            content: '';
+            position: absolute;
+            width: 2em;
+            border-top: solid 1px;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: .5;
+        }
+    }
+
+
+
+}
+
+.comment {
+    padding-bottom: 10px;
+    p {
+        margin-top: 0 !important;
+        @include FontSize(14);
+        white-space: pre-wrap;
+    }
+}
+
+
+@include tabMax {
+    .list {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+
+@include spMax {
+    .list {
+        dt {
+            @include FontSize(12);
+        }
+    }
+    .comment {
+        p {
+            @include FontSize(12);
+        }
+    }
+}

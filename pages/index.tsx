@@ -2,10 +2,16 @@ import { NextPage } from 'next'
 
 import { client_page, client_news, client_opt, client_nav } from '../lib/client'
 
+import styles from './style.module.scss'
+
 import Layout from '../components/templates/Layout'
 import ContentsNews from '../components/organisms/ContentsNews'
 import ContentsTopics from '../components/organisms/ContentsTopics'
 import BoxContents from '../components/molecules/BoxContents'
+
+import Headline from '../components/atoms/Headline'
+
+import Frame from '../components/organisms/Frame'
 
 
 interface HomeProps {
@@ -59,6 +65,21 @@ const Home: NextPage<HomeProps> = ({ gNav, fNav, page, news, conPrivate }) => {
             :
             false
           }
+          <div　className={styles.bottom}>
+            <div className={styles.frame}>
+              <Headline
+                text="垂れ流し - オリジナル -"
+              />
+              <Frame
+                urlSel='https://memo.est-s.net/hoge1/'
+              />
+            </div>
+            <div>
+              <p>
+                何か入れる予定。
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </Layout>

@@ -1,0 +1,21 @@
+@import '../../../styles/function.scss';
+
+.box {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 4px #{map-get($siteColor,gray-5)};
+    box-sizing: border-box;
+    padding: 40px;
+    overflow-y: scroll;
+    height: 400px;
+    overscroll-behavior-y: none;
+}
+
+
+@include spMax {
+    .box {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+  }
