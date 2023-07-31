@@ -49,9 +49,14 @@ function MenuNav({ nav, menuType = "" , textAlign = "left" } : MenuNavProps) {
                   {item.name}
                 </Link>
                 :
-                <a href={item.otherUrl} target="_blank" rel="noopener noreferrer">
+                <Link
+                  href={{
+                    pathname: item.otherUrl
+                  }}
+                  target="_blank" rel="noopener noreferrer"
+                >
                   {item.name}
-                </a>
+                </Link>
               }
             </>
             :
