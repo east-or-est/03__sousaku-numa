@@ -71,7 +71,7 @@ const Home: NextPage<HomeProps> = ({ gNav, fNav, page, news, conPrivate }) => {
                 text="垂れ流し - オリジナル -"
               />
               <Frame
-                urlSel='https://memo.est-s.net/hoge1/'
+                urlSel='https://memo.est-s.net/log/'
               />
             </div>
             <div>
